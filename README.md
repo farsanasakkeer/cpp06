@@ -3,7 +3,7 @@
  static_cast is a compile-time cast and provides a way to 
  convert between types in a way that is checked at compile time for correctness. 
  
-    ## Special Values Representation
+## Special Values Representation
 
 | Value  | Description                                         |
 |--------|-----------------------------------------------------|
