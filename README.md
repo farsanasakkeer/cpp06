@@ -13,7 +13,5 @@
 | `+inff`| Represents positive infinity with a float suffix    | float and double |
 | `-inff`| Represents negative infinity with a float suffix    | float and double |
 | `nanf` | Represents a NaN (not a number) value with a float suffix | float and double |
-
-
 | `inf`  | Represents positive or negative infinity            | |
 | `inff` | Represents positive or negative infinity with a float suffix |  |
