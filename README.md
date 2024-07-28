@@ -5,10 +5,10 @@
  
 ## Special Values Representation
 
-| Value  | Description                                         |
-|--------|-----------------------------------------------------|
-| `nan`  | Represents a NaN (not a number) value               |
-| `nanf` | Represents a NaN (not a number) value with a float suffix |
+| Value  | Description                                         | check |
+|--------|-----------------------------------------------------|--------|
+| `nan`  | Represents a NaN (not a number) value               | 
+| `nanf` | Represents a NaN (not a number) value with a float suffix | 
 | `+inf` | Represents positive infinity                        |
 | `inf`  | Represents positive or negative infinity            |
 | `-inf` | Represents negative infinity                        |
