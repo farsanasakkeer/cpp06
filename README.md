@@ -14,4 +14,13 @@
 | `-inff`| Represents negative infinity with a float suffix    | float and double |
 | `nanf` | Represents a NaN (not a number) value with a float suffix | float and double |
 | `inf`  | Represents positive or negative infinity            | |
-| `inff` | Represents positive or negative infinity with a float suffix |  |
+| `inff` | Represents positive or negative infinity with a float suffix  |  |
+
+
+` str.find_first_not_of() `:Index of first unmatched character when successful or string::npos if no such character found.
+**return** ` **value of find_first_not_of()** ` :The position of the first character that does not match.
+If no such characters are found, the function returns string::npos.
+
+std::string::npos is a constant that holds the largest possible value of size_t type ( 18446744073709551615 on 64-bit systems ), 
+which is an unsigned integer type. 
+Hence, -1 corresponds to the actual value of std::string::npos.
