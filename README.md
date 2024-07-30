@@ -18,6 +18,7 @@
 
 
 ` str.find_first_not_of() `:Index of first unmatched character when successful or string::npos if no such character found.
+
 **return value of** **` find_first_not_of() `** :The position of the first character that does not match.
 If no such characters are found, the function returns string::npos.
 
