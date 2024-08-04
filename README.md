@@ -40,3 +40,22 @@ int main() {
     return 0;
 }
 ```
+
+Output: ` 123.46 `
+Explanation:
+std::fixed ensures that the number is not printed in scientific notation.
+std::setprecision(2) limits the output to 2 decimal places.
+
+### Example 2: Fixed-Point Notation with Default Precision
+```
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    double value = 0.1;
+    std::cout << std::fixed << value << std::endl;
+    return 0;
+}
+```
+Output: ` 0.100000 `
+Explanation: By default, std::fixed displays 6 decimal places if no precision is set.
