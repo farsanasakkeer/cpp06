@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   converter.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: farsana <farsana@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fvaliyak <fvaliyak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 00:10:12 by farsana           #+#    #+#             */
-/*   Updated: 2024/07/31 13:51:21 by farsana          ###   ########.fr       */
+/*   Created: 2024/08/04 16:59:16 by fvaliyak          #+#    #+#             */
+/*   Updated: 2024/08/04 16:59:19 by fvaliyak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,30 @@ bool validate_string(std::string str)
     return(false);
 }
 
+void print_char(std::string &str)
+{
+	if (str.length() == 1)
+	{
+		char charValue = static_cast<char>(str[0]);
+
+		if (std::isdigit(charValue) || !std::isprint(charValue)) // checking  character is  digit and character is not printable
+			std::cout << RED << "char  : Non Displayable" << RESET << std::endl;
+		else
+			std::cout << GREEN << "char  : '" << charValue << "'" << RESET << std::endl;
+	}
+	else
+	{
+		long long longValue = atoll(str.c_str());
+		char charValue = static_cast<char>(longValue);
+
+		if (longValue < 0 || longValue > 255) //Checks if longValue is within the ASCII range (0 to 255) ....integer value 65 corresponds to the character 'A' in ASCII.
+			std::cout << RED << "char  : Impossible" << RESET << std::endl; 
+		else if (!std::isprint(longValue))
+			std::cout << RED << "char  : Non displayable" << RESET << std::endl;
+		else
+			std::cout << GREEN << "char  : '" << charValue << "'" << RESET << std::endl; 
+	}
+}
 void    print_int(std::string str)
 {
     long long longValue = atoll(str.c_str());
@@ -131,13 +155,51 @@ void    print_int(std::string str)
     // Check if the converted value fits into an int
     if (longValue < std::numeric_limits<int>::min() || longValue > std::numeric_limits<int>::max())
     {
-        std::cout << YELLOW << "int: Impossible" << RESET << std::endl;
+        std::cout << RED << "int   : Impossible" << RESET << std::endl;
         return;
     }
 
     // Cast to int and output
     int intValue = static_cast<int>(longValue);
-    std::cout << GREEN << "int: " << intValue << RESET << std::endl;
+    std::cout << GREEN << "int   : " << intValue << RESET << std::endl;
+}
+
+void print_float(std::string &str)
+{
+	double doubleValue = atof(str.c_str());
+	float floatValue = static_cast<float>(doubleValue);
+
+	if (doubleValue < -FLT_MAX || doubleValue > FLT_MAX || (str.length() == 1 && !std::isdigit(str[0])))
+		std::cout << RED << "float : Impossible" << RESET << std::endl;
+	else if (str.find('.') == str.npos)
+		std::cout << GREEN << "float : " << floatValue << ".0f" << RESET << std::endl;
+	else 
+	{
+		int precescionLength = str.length() -(str.find('.') + 1);
+		if (str[str.length() - 1] == 'f' || str[str.length() - 1] == 'F')
+			precescionLength--;
+		std::cout << GREEN << "float :" << std::fixed << std::setprecision(precescionLength) << floatValue << "f" << RESET << std::endl;
+		// When you use std::fixed, the output will display a fixed number of decimal places.
+	}
+}
+
+void print_double(std::string &str)
+{
+	double doubleValue = atof(str.c_str());
+
+	if (doubleValue < -DBL_MAX || doubleValue > DBL_MAX || (str.length() == !std::isdigit(str[0])))
+		std::cout << RED << "double: Impossible" << RESET << std::endl; 
+	else if (str.find('.') == str.npos)
+		std::cout << GREEN << "double: " << doubleValue << ".0" << RESET << std::endl;
+	else
+	{
+		int precescionLength = str.length() - (str.find('.') + 1);
+
+		if (str[str.length() - 1] == 'f' || str[str.length() - 1] == 'F')
+			precescionLength--;
+		
+		std::cout << GREEN << "double: " << std::fixed << std::setprecision(precescionLength) << doubleValue << RESET << std::endl;
+	}
 }
 
 void ScalarConverter::convert(std::string str)
@@ -147,12 +209,13 @@ void ScalarConverter::convert(std::string str)
     if (is_num(str) || is_double(str) || is_float(str) || is_char(str))
     {
         check_spcl_char(str);
+		print_char(str);
         print_int(str);
+		print_float(str);
+		print_double(str);
     }
     else
         std::cout << RED << "Error input" << RESET << std::endl;
-    
-		
 }
 
 

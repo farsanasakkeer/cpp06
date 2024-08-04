@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   converter.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: farsana <farsana@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fvaliyak <fvaliyak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 00:08:28 by farsana           #+#    #+#             */
-/*   Updated: 2024/07/31 13:29:21 by farsana          ###   ########.fr       */
+/*   Created: 2024/07/27 00:08:28 by fvaliyak          #+#    #+#             */
+/*   Updated: 2024/08/04 16:59:39 by fvaliyak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <cstdlib> // for atoll
 #include <cctype>  // for isdigit
 #include <string>
+#include <iomanip>  // For std::setprecision and std::fixed
 
 # define RESET			"\033[0m"
 # define RED			"\033[31m"
