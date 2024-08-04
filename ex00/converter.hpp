@@ -6,7 +6,7 @@
 /*   By: farsana <farsana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 00:08:28 by farsana           #+#    #+#             */
-/*   Updated: 2024/07/27 00:24:33 by farsana          ###   ########.fr       */
+/*   Updated: 2024/07/31 13:29:21 by farsana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <iomanip>
-#include <climits>
 #include <cfloat>
 #include <stdlib.h>
+#include <limits>
+#include <cstdlib> // for atoll
+#include <cctype>  // for isdigit
+#include <string>
 
 # define RESET			"\033[0m"
 # define RED			"\033[31m"
@@ -30,8 +32,7 @@
 class ScalarConverter
 {
 	public:
-		static void convert(std::string &str);
-        void validate_string(std::string &str);
+		static void convert(std::string str);
 
 	private:
 		ScalarConverter();
@@ -42,6 +43,6 @@ class ScalarConverter
 
 };
 
-void validate_string(std::string str);
-
+bool validate_string(std::string str);
+		
 #endif

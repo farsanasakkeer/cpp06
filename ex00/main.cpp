@@ -15,4 +15,5 @@ int main(int ac, char **av)
 	}
 
     std::string str(av[1]);// argument into a std::string object named str.
+	ScalarConverter::convert(str);
 }
