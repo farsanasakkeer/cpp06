@@ -25,3 +25,18 @@ If no such characters are found, the function returns string::npos.
 `std::string::npos` is a constant that holds the largest possible value of size_t type ( 18446744073709551615 on 64-bit systems ), 
 which is an unsigned integer type. 
 Hence, -1 corresponds to the actual value of std::string::npos.
+
+
+## `std::fixed`
+### Example 1: Basic Fixed-Point Notation
+
+``` 
+#include <iostream>
+#include <iomanip>  // For std::fixed and std::setprecision
+
+int main() {
+    double value = 123.456789;
+    std::cout << std::fixed << std::setprecision(2) << value << std::endl;
+    return 0;
+}
+```
