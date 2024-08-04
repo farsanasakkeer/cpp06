@@ -1,4 +1,4 @@
-# cpp06
+# cpp06 - ex00
 
  static_cast is a compile-time cast and provides a way to 
  convert between types in a way that is checked at compile time for correctness. 
