@@ -59,3 +59,10 @@ int main() {
 ```
 Output: ` 0.100000 `
 Explanation: By default, std::fixed displays 6 decimal places if no precision is set.
+
+
+``` long long longValue = atoll(str.c_str()); ```
+
+- `str.c_str()` : Converts the std::string str into a C-style string (const char*).
+- `atoll()` : atoll is a standard library function from <cstdlib>. It converts the C-style string to a long long integer.
+It handles the conversion of string representations of integers to their numerical form.
