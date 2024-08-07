@@ -240,3 +240,40 @@ int main() {
 - **`const_cast`**: Used for adding or removing `const` or `volatile` qualifiers.
 
 `reinterpret_cast` is powerful but should be used with caution due to its ability to bypass type safety mechanisms in C++.
+
+
+# ex02
+
+`dynamic_cast<A *>(p)` is a C++ expression used for safe type conversion in the context of polymorphism, where `p` is a pointer to a base class and `A` is a derived class.
+
+`dynamic_cast` is used to safely cast pointers or references to base classes to pointers or references to derived classes, but only if the actual object type matches the target type or is a polymorphic base class (i.e., a class with at least one virtual function).
+
+**Syntax**: `dynamic_cast<A *>(p)` attempts to cast the pointer `p` to a pointer of type `A*`, where `A` is the target derived class.
+
+**Usage**:
+   - **Polymorphism**: For `dynamic_cast` to work properly, `p` should point to a polymorphic base class (a class with at least one virtual function). This is because `dynamic_cast` uses runtime type information (RTTI) to perform the cast safely.
+   - **Pointer Check**: If `p` actually points to an object of type `A` (or a type derived from `A`), the cast will succeed, and `dynamic_cast` will return a non-null pointer of type `A*`. If the cast fails (i.e., `p` does not point to an object of type `A`), it will return `nullptr`.
+
+4. **Example**:
+   ```cpp
+   class Base {
+   public:
+       virtual ~Base() {} // Ensuring Base is polymorphic
+   };
+
+   class Derived : public Base {
+   };
+
+   Base *basePtr = new Derived();
+   Derived *derivedPtr = dynamic_cast<Derived *>(basePtr);
+
+   if (derivedPtr) {
+       // Successfully cast to Derived*
+   } else {
+       // Failed to cast
+   }
+   ```
+
+   In this example, `basePtr` is a pointer to a `Base` object that actually points to a `Derived` object. Using `dynamic_cast<Derived *>(basePtr)` successfully casts it to a `Derived` pointer.
+
+5.**`dynamic_cast` is useful in scenarios where you need to safely determine if an object is of a particular derived type and perform operations specific to that type.**
